@@ -10,14 +10,6 @@ import CustomerReviewsPage from './components/CustomerReviewsPage.jsx';
 import MyCart from './components/MyCart.jsx';
 import Wishlist from './components/Wishlist.jsx';
 
-// import Footer from './Footer.jsx';
-// import Product from './Product.jsx';
-// import Shop from './Shop.jsx';
-// import About from './About.jsx';
-// import Contact from './Contact.jsx';
-// import CustomerReviewsPage from './CustomerReviewsPage.jsx';
-// import MyCart from './MyCart.jsx';
-// import Wishlist from './Wishlist.jsx';
 import './style/Product.css';
 import './style/Shop.css';
 
