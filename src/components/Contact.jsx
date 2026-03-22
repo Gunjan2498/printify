@@ -394,7 +394,7 @@ export default function Contact() {
             <div className="social-icons">
               <h2>Follow Us</h2>
               <a href="/contact"><FacebookIcon /></a>
-              <a href="/contact">WhatsappIcon</a>
+              <a href="/contact"><WhatsappIcon /></a>
               <a href="/contact"><YoutubeIcon /></a>
               <a href="/contact"><InstagramIcon /></a>
             </div>
