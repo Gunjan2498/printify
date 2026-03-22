@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import {
@@ -21,8 +21,6 @@ function Product() {
   const [isDescPanelOpen, setIsDescPanelOpen] = useState(false);
   const [isReturnPanelOpen, setIsReturnPanelOpen] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
-  const [isNavOpen, setIsNavOpen] = useState(false);
   const [reviews, setReviews] = useState(initialReviews);
   const sliderRef = React.useRef(null);
   const productListRef = React.useRef(null);
@@ -107,8 +105,6 @@ function Product() {
     return () => window.removeEventListener('mousedown', handleOutsideClick);
   }, [isModalOpen, toggleSizeGuideModal]);
 
-  const preventDefault = (e) => e.preventDefault();
-
   // Effect to observe size changes for responsive calculations
   React.useLayoutEffect(() => {
     const slider = sliderRef.current;
@@ -123,19 +119,16 @@ function Product() {
     const observer = new ResizeObserver(updateDimensions);
     observer.observe(slider);
 
-    updateDimensions(); // Set initial dimensions
+    updateDimensions();
 
     return () => observer.unobserve(slider);
   }, []);
 
-  // --- DERIVED STATE ---
   const isAtStart = offset >= 0;
   const maxOffset = contentWidth > containerWidth ? contentWidth - containerWidth : 0;
   const isAtEnd = offset <= -maxOffset;
 
-  // --- SCROLL HANDLERS ---
   const scroll = (direction) => {
-    // Amount to scroll is one card + its gap
     const scrollAmount = 240 + 20;
 
     if (direction === 'right') {
@@ -156,7 +149,7 @@ function Product() {
               <img
                 key={file}
                 src={getImageUrl(file, selectedColor)}
-                alt={`Thumbnail for ${selectedColor} ${file}`}
+                alt={`${selectedColor} t-shirt thumbnail`}
                 className={file === currentImageFile ? 'active' : ''}
                 onClick={() => handleThumbnailClick(file)}
                 onError={(e) => e.target.src = getImageUrl('fallback.webp', selectedColor)}
@@ -164,7 +157,7 @@ function Product() {
             ))}
           </div>
           <div className="main-img">
-            <img id="mainProductImg" src={mainImageUrl} alt="Main Product Image" />
+            <img id="mainProductImg" src={mainImageUrl} alt="DC Merchandise T-Shirt front view" />
           </div>
         </div>
 
@@ -208,7 +201,13 @@ function Product() {
           <div className="sizes">
             <div className="sizes-header">
               <p>Select Size</p>
-              <a href="#" id="openSizeGuide" onClick={(e) => { e.preventDefault(); toggleSizeGuideModal(); }}>Size Guide</a>
+              <button
+                id="openSizeGuide"
+                className="size-guide-link"
+                onClick={toggleSizeGuideModal}
+              >
+                Size Guide
+              </button>
             </div>
             <div className="sizes-row">
               {sizeOptions.map(size => (
@@ -373,12 +372,12 @@ function Product() {
               <div className={`panel ${isReturnPanelOpen ? 'show' : ''}`}>
                 <p>
                   This product is eligible for return or exchange within 7 days of delivery, provided it is
-                  unworn, unwashed, and in original condition
-                  with tags intact.
+                  unworn, unwashed, and in original condition with tags intact.
                 </p>
               </div>
             </div>
           </div>
+
           <section id="icon-box">
             <div className="icon">
               <img src={getImageUrl('guarantee.png', 'Guarantee')} alt="Genuine Product" />
@@ -389,7 +388,7 @@ function Product() {
               <p>100% Secure Payment</p>
             </div>
             <div className="icon">
-              <img src={getImageUrl('product-return.png', 'Return')} alt="Easy Return & Instant Refunds" />
+              <img src={getImageUrl('product-return.png', 'Return')} alt="Easy Return and Instant Refunds" />
               <p>Easy Return & Instant Refunds</p>
             </div>
           </section>
@@ -480,7 +479,6 @@ function Product() {
       </main>
 
       <React.Fragment>
-        {/* Frequently Bought Together */}
         <section id="collection">
           <h3>Recommended for You</h3>
           <div className="slider-wrapper">
