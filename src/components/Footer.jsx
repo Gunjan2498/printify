@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const preventDefault = (e) => e.preventDefault();
+
 const Footer = () => {
   return (
     <>
@@ -17,20 +19,20 @@ const Footer = () => {
           <div className="footer-column links">
             <h4>Quick Links</h4>
             <ul>
-              <li><Link to="/">Home</Link></li>
+              <li><a href="/" onClick={preventDefault}>Home</a></li>
               <li><Link to="/">Shop</Link></li>
               <li><Link to="/contact">Contact</Link></li>
-              <li><Link to="/">FAQs</Link></li>
-              <li><Link to="/">Return Policy</Link></li>
+              <li><a href="#" onClick={preventDefault}>FAQs</a></li>
+              <li><a href="#" onClick={preventDefault}>Return Policy</a></li>
             </ul>
           </div>
           <div className="footer-column links">
             <h4>Support</h4>
             <ul>
               <li><Link to="/about">About</Link></li>
-              <li><Link to="/">Privacy Policy</Link></li>
-              <li><Link to="/">Terms of Service</Link></li>
-              <li><Link to="/">Customer Service</Link></li>
+              <li><a href="#" onClick={preventDefault}>Privacy Policy</a></li>
+              <li><a href="#" onClick={preventDefault}>Terms of Service</a></li>
+              <li><a href="#" onClick={preventDefault}>Customer Service</a></li>
             </ul>
           </div>
           <div className="footer-column address">
@@ -38,10 +40,10 @@ const Footer = () => {
             <p>Sonigara Landmark, Chatrapati Chowk Rd, Wakad, Pune 411057</p>
             <br />
             <div className="footer-socials">
-              <a href="https://facebook.com" className="facebook"><i className="fab fa-facebook-f"></i></a>
-              <a href="https://whatsapp.com" className="whatsapp"><i className="fab fa-whatsapp"></i></a>
-              <a href="https://youtube.com" className="youtube"><i className="fab fa-youtube"></i></a>
-              <a href="https://instagram.com" className="instagram"><i className="fab fa-instagram"></i></a>
+              <a href="#" className="facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="#" className="whatsapp"><i className="fab fa-whatsapp"></i></a>
+              <a href="#" className="youtube"><i className="fab fa-youtube"></i></a>
+              <a href="#" className="instagram"><i className="fab fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -50,12 +52,14 @@ const Footer = () => {
         </div>
       </footer>
 
+      {/* CSS-in-JS */}
       <style>{`
         .app-footer {
           background-color: #2C3E50;
           color: #FFFFFF;
           padding: 50px 0 20px 0;
           font-family: 'Poppins', Arial, sans-serif;
+
         }
 
         .footer-container {
