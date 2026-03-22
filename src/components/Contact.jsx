@@ -436,6 +436,7 @@ export default function Contact() {
 
         <div className="map">
           <iframe
+            title="Printify location map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.492398453316!2d77.00832381538418!3d20.70955898622415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd731e71154b505%3A0x59b778dcc7898204!2sPrintify!5e0!3m2!1sen!2sin!4v1622012345678!5m2!1sen!2sin"
             width="100%"
             height="320"
