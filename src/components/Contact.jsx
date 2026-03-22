@@ -27,7 +27,6 @@ const YoutubeIcon = () => <i className="fab fa-youtube" aria-label="YouTube"></i
 const InstagramIcon = () => <i className="fab fa-instagram" aria-label="Instagram"></i>;
 
 export default function Contact() {
-  const [isNavActive, setIsNavActive] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -394,10 +393,10 @@ export default function Contact() {
             <hr />
             <div className="social-icons">
               <h2>Follow Us</h2>
-              <a href="#"><FacebookIcon /></a>
-              <a href="#"><WhatsappIcon /></a>
-              <a href="#"><YoutubeIcon /></a>
-              <a href="#"><InstagramIcon /></a>
+              <a href="/contact"><FacebookIcon /></a>
+              <a href="/contact">WhatsappIcon</a>
+              <a href="/contact"><YoutubeIcon /></a>
+              <a href="/contact"><InstagramIcon /></a>
             </div>
           </div>
 
