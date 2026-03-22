@@ -82,7 +82,8 @@ const WishlistProvider = ({ children }) => {
 
 // --- 3. WISHLIST PAGE COMPONENT ---
 const WishlistPage = () => {
-const { wishlist, removeFromWishlist, moveToCart } = useWishlist();
+  const { wishlist, removeFromWishlist, moveToCart } = useWishlist();
+
   if (wishlist.length === 0) {
     return (
       <div className="wishlist-container empty">
@@ -138,7 +139,6 @@ const { wishlist, removeFromWishlist, moveToCart } = useWishlist();
               <button
                 className={`action-btn move-to-cart-pro ${!item.available ? 'disabled' : ''}`}
                 disabled={!item.available}
-                onClick={() => moveToCart(item)}
               >
                 {item.available ? 'Move to Cart' : 'Currently Unavailable'}
               </button>
