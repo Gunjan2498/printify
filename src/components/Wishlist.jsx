@@ -82,7 +82,7 @@ const WishlistProvider = ({ children }) => {
 
 // --- 3. WISHLIST PAGE COMPONENT ---
 const WishlistPage = () => {
-  const { wishlist, removeFromWishlist } = useWishlist();
+const { wishlist, removeFromWishlist, moveToCart } = useWishlist();
   if (wishlist.length === 0) {
     return (
       <div className="wishlist-container empty">
