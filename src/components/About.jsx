@@ -354,7 +354,7 @@ const About = () => {
                                 Printify was founded on a simple idea: to empower self-expression through high-quality, sustainable prints. Every thread, every color, every design tells a story—your story.
                             </p>
                             <div style={{ marginTop: '3rem' }}>
-                                <a href="/" className="btn-primary">
+                                <a href="/about" className="btn-primary">
                                     Explore Our Collections
                                 </a>
                             </div>
